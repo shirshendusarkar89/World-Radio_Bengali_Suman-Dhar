@@ -1,94 +1,247 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<meta name="theme-color" content="#101820">
-<title>বিশ্ব বাংলা রেডিও</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>বিশ্বের বিভিন্ন স্থান থেকে বাংলা রেডিও স্টেশন</title>
 <style>
-:root{--bg:#050a0e;--cab:#18242c;--face:#24333c;--cyan:#45e3ff;--green:#59ff9b;--gold:#f1cc68}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;min-height:100%;background:radial-gradient(circle at 50% 0,#31434d,#080d11 55%,#020405);color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
-body{overflow-x:hidden}.app{max-width:1180px;margin:auto;padding:calc(env(safe-area-inset-top) + 8px) 9px calc(env(safe-area-inset-bottom) + 18px)}
-header{text-align:center;padding:5px 3px 13px}h1{font-size:clamp(21px,6vw,39px);line-height:1.25;margin:0;color:var(--gold);font-weight:900}h2{font-size:clamp(15px,4.2vw,25px);line-height:1.3;margin:3px 0 0}
-.radio{padding:14px;border-radius:24px;background:linear-gradient(145deg,#3a4a54,#18242c 30%,#0b1217 65%,#2b3942);border:1px solid #71818a;box-shadow:0 22px 48px #000b,inset 2px 2px 4px #fff3,inset -4px -5px 9px #000c}
-.face{padding:13px;border-radius:18px;background:linear-gradient(145deg,#2c3c45,#142129);border:1px solid #63747d;box-shadow:inset 2px 2px 4px #fff2,inset -3px -4px 8px #000c}
-.display{scroll-margin-top:10px;padding:12px;border-radius:13px;background:#02080b;border:2px solid #53636c;box-shadow:inset 0 0 24px #000,inset 0 1px 2px #fff2,0 3px 5px #000}
-.now{display:flex;gap:11px;align-items:center}.logo{width:60px;height:60px;flex:0 0 60px;object-fit:contain;border-radius:9px;background:#081015;border:1px solid #465761}.info{min-width:0;flex:1}
-.station{font-size:19px;font-weight:900;color:var(--cyan);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.meta{font-size:11px;color:#a5b3bb;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.live{font-size:11px;color:#89969d;margin-top:6px;font-weight:900}.live.on{color:var(--green);text-shadow:0 0 9px #59ff9a88}
-.wave{height:65px;margin:9px auto 2px;display:flex;align-items:center;justify-content:center;gap:3px;overflow:hidden;border-radius:8px;background:#020609;border:1px solid #17262e;box-shadow:inset 0 0 15px #000}.bar{width:4px;height:9px;border-radius:3px;background:#56646b;opacity:.7}.wave.playing .bar{background:var(--cyan);opacity:1;box-shadow:0 0 7px #42e6ff99;animation:bounce .72s ease-in-out infinite alternate}.wave.playing .bar:nth-child(2n){animation-duration:.55s}.wave.playing .bar:nth-child(3n){animation-duration:.91s}.wave.playing .bar:nth-child(4n){animation-duration:.63s}.wave.playing .bar:nth-child(5n){animation-duration:1.03s}
-@keyframes bounce{from{transform:scaleY(.25)}to{transform:scaleY(3.4)}}
-.controls{display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:8px;margin-top:11px}.btn{min-height:48px;border-radius:11px;border:1px solid #687881;color:#eef3f5;background:linear-gradient(145deg,#4a5962,#202c34 55%,#11191e);box-shadow:inset 1px 1px 2px #fff3,inset -2px -3px 4px #000b,0 3px 4px #0009;font-weight:900;cursor:pointer}.btn:active{transform:translateY(2px)}.play{color:#00151b;background:linear-gradient(145deg,#a6ffff,#38d9ef 48%,#078ca7);border-color:#7af4ff;box-shadow:inset 1px 1px 3px #fff8,inset -2px -3px 5px #00566a,0 0 14px #42e6ff66,0 4px 5px #000b}.play.active{color:#00180b;background:linear-gradient(145deg,#b4ffd0,#4de58b 48%,#14844f);border-color:#8dffb0;box-shadow:inset 1px 1px 3px #fff8,inset -2px -3px 5px #075d31,0 0 16px #59ff9a77,0 4px 5px #000b}.refresh{width:100%;margin-top:9px;min-height:42px}
-.lower{display:grid;grid-template-columns:1fr 1.35fr;gap:10px;margin-top:11px}.decor{min-height:75px;border-radius:11px;padding:10px;background:linear-gradient(145deg,#121c22,#26343c);border:1px solid #4a5a63;box-shadow:inset 1px 1px 3px #fff1,inset -2px -3px 5px #000b}.knob{width:52px;height:52px;margin:auto;border-radius:50%;background:radial-gradient(circle at 35% 30%,#89969c,#3d4a51 35%,#141b20 70%);border:2px solid #718089;box-shadow:2px 3px 5px #000b,inset 1px 1px 3px #fff4;position:relative}.knob:after{content:"";position:absolute;width:3px;height:16px;background:#d9e0e3;left:50%;top:5px;transform:translateX(-50%);border-radius:2px}.speaker{height:100%;display:grid;grid-template-columns:repeat(12,1fr);gap:4px;align-items:center}.speaker i{height:5px;background:#070b0e;border-radius:4px;box-shadow:inset 0 1px 1px #fff1}
-.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:11px}input,select{width:100%;height:44px;border-radius:10px;border:1px solid #4b5c65;background:#101c23;color:#fff;padding:0 10px;outline:none;box-shadow:inset 1px 1px 3px #0009}.search{grid-column:1/-1}.status{font-size:12px;color:#a9b7bf;padding:9px 3px 7px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.card{display:flex;align-items:center;gap:8px;min-width:0;padding:9px;border-radius:12px;background:linear-gradient(145deg,#293941,#111b21);border:1px solid #53636c;box-shadow:inset 1px 1px 2px #fff2,inset -2px -3px 4px #0009,0 3px 5px #0007}.card-logo{width:45px;height:45px;flex:0 0 45px;object-fit:contain;border-radius:7px;background:#060b0e}.card-info{min-width:0;flex:1}.card-name{font-size:13px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card-meta{font-size:10px;color:#9babb4;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.card-play{width:42px;height:42px;flex:0 0 42px;border-radius:10px;border:1px solid #6b7b84;color:#00131a;font-weight:900;background:linear-gradient(145deg,#8cf5ff,#16b9d7,#08728b);box-shadow:inset 1px 1px 2px #fff7,inset -2px -3px 4px #00566a,0 3px 4px #0009}.empty{text-align:center;padding:35px 10px;color:#91a3ad;grid-column:1/-1}
-audio{display:none}
-@media(max-width:520px){.grid{grid-template-columns:1fr}}@media(max-width:360px){.app{padding-left:6px;padding-right:6px}.radio{padding:9px}.face{padding:9px}.logo{width:53px;height:53px;flex-basis:53px}.station{font-size:17px}.filters{grid-template-columns:1fr}.search{grid-column:auto}.lower{display:none}}
-@media(min-width:800px){.app{padding:22px}.radio{padding:20px;border-radius:30px}.face{padding:18px}.logo{width:76px;height:76px;flex-basis:76px}.station{font-size:25px}.grid{grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}.filters{grid-template-columns:1fr 1fr 2fr}.search{grid-column:auto}.controls{display:flex}.btn{min-width:130px}.refresh{width:auto;padding:0 18px}}
-@media(prefers-reduced-motion:reduce){.wave.playing .bar{animation:none}}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Noto Sans Bengali","Nirmala UI",Arial,sans-serif;background:#0a0b0d;color:#eee}
+body{padding:14px;background:radial-gradient(circle at 50% -10%,#626a73 0,#252a30 24%,#0b0d10 68%,#050607 100%)}
+.wrap{max-width:1120px;margin:auto}
+h1{text-align:center;margin:5px 0 2px;font-size:clamp(22px,4vw,36px);line-height:1.28;text-shadow:0 3px 5px #000}
+.sub{text-align:center;color:#ddd;margin:0 0 14px;font-size:clamp(14px,2.7vw,19px)}
+.radio{
+position:relative;border-radius:30px;padding:17px;
+background:linear-gradient(145deg,#737b83 0%,#3c4248 9%,#15191d 27%,#0d1013 62%,#4a5158 100%);
+border:2px solid #8b9298;
+box-shadow:inset 3px 3px 6px #c7ccd055,inset -7px -7px 14px #000,
+0 20px 38px #000c,0 3px 0 #9ba0a5
+}
+.radio:before{content:"";position:absolute;inset:7px;border-radius:24px;border:1px solid #ffffff18;pointer-events:none}
+.panel{
+position:relative;border-radius:23px;padding:15px;
+background:linear-gradient(145deg,#080a0c,#252a2f 45%,#0b0e11);
+box-shadow:inset 2px 2px 5px #6666,inset -5px -5px 10px #000,0 2px 3px #000;
+}
+.display{
+scroll-margin-top:12px;min-height:178px;border-radius:17px;padding:15px;
+background:linear-gradient(145deg,#020503,#102016 46%,#030604);
+border:2px solid #59655d;
+box-shadow:inset 0 0 25px #000,inset 3px 3px 5px #000,0 3px 6px #000b;
+text-align:center;overflow:hidden
+}
+.display:after{content:"";display:block;position:absolute;left:8%;right:8%;height:1px;background:#8cffae22;box-shadow:0 30px #8cffae11,0 60px #8cffae0c;pointer-events:none}
+.stationName{font-size:clamp(20px,4vw,31px);font-weight:900;min-height:42px;color:#d8ffe5;text-shadow:0 0 9px #55ff8880}
+.meta{font-size:13px;color:#9eaca3;margin:3px 0}
+.status{min-height:25px;margin-top:5px;font-weight:900;color:#63ff98;text-shadow:0 0 8px #40ff7c88}
+.wave{height:62px;display:flex;justify-content:center;align-items:end;gap:4px;margin-top:7px}
+.wave i{width:5px;height:8px;border-radius:3px;background:#50ff91;box-shadow:0 0 9px #50ff9199}
+.wave.playing i{animation:beat .68s ease-in-out infinite alternate}
+.wave i:nth-child(2n){animation-delay:.08s}.wave i:nth-child(3n){animation-delay:.18s}.wave i:nth-child(5n){animation-delay:.3s}
+@keyframes beat{from{height:6px}to{height:56px}}
+.knobs{display:flex;justify-content:space-between;align-items:center;padding:11px 12px 5px}
+.knob{width:66px;height:66px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#8c9296,#30353a 42%,#090b0d 70%);
+border:3px solid #6d7479;box-shadow:inset 4px 4px 8px #b7bcc233,inset -5px -5px 9px #000,5px 6px 10px #000a;position:relative}
+.knob:after{content:"";position:absolute;width:3px;height:19px;background:#ddd;left:30px;top:7px;border-radius:2px;transform:rotate(28deg);transform-origin:bottom}
+.controls{display:flex;justify-content:center;gap:13px;flex-wrap:wrap;margin:5px 0 11px}
+button{
+border:1px solid #858d93;border-radius:13px;color:#fff;background:linear-gradient(145deg,#626970,#252a2f 52%,#111417);
+box-shadow:5px 6px 10px #0009,-2px -2px 5px #aaa4,inset 0 0 0 1px #08090a;
+padding:11px 17px;font-weight:800;cursor:pointer;transition:.12s
+}
+button:active{transform:translateY(2px);box-shadow:inset 3px 3px 7px #000}
+.play{min-width:164px;font-size:18px;padding:13px 22px;background:linear-gradient(145deg,#8a9095,#353a3f 48%,#14171a);border-color:#a6adb2}
+.play.on{box-shadow:0 0 20px #4dff9588,5px 6px 10px #0009,inset 0 0 0 1px #9affba}
+.speaker{margin:5px 4px 4px;padding:12px;border-radius:13px;background:linear-gradient(145deg,#080a0c,#20252a);box-shadow:inset 2px 2px 4px #000,inset -1px -1px 2px #6665}
+.grille{height:34px;border-radius:7px;background:repeating-linear-gradient(0deg,#050607 0 3px,#34393e 3px 5px);opacity:.9}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.filters input,.filters select{width:100%;padding:12px;border-radius:11px;border:1px solid #5f676d;background:linear-gradient(145deg,#20262b,#0b0e11);color:#fff;font-size:15px;box-shadow:inset 2px 2px 4px #000}
+.list{display:grid;gap:9px;margin-top:12px}
+.card{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 13px;border-radius:15px;
+background:linear-gradient(145deg,#3b4147,#171b1f);border:1px solid #60676d;box-shadow:inset 1px 1px 2px #bbb3,5px 6px 10px #0008}
+.card.active{border-color:#64ff9c;box-shadow:0 0 12px #64ff9c33,inset 1px 1px 2px #bbb3}
+.name{font-weight:900;font-size:16px}.small{font-size:12px;color:#adb4b8;margin-top:3px}
+.card button{padding:9px 13px;min-width:88px}
+.loading{text-align:center;padding:20px;color:#bbb}
+.note{text-align:center;color:#91999e;font-size:12px;margin:13px 3px 2px;line-height:1.5}
+@media(max-width:650px){
+body{padding:7px}.radio{padding:10px;border-radius:23px}.panel{padding:9px;border-radius:18px}.display{min-height:160px;padding:11px}
+.knob{width:52px;height:52px}.knob:after{left:23px}.controls{gap:8px}.controls button{padding:10px 12px}.play{min-width:145px}
+.filters{grid-template-columns:1fr}.card{grid-template-columns:1fr auto}
+}
 </style>
 </head>
 <body>
-<div class="app">
-<header><h1>বিশ্বের বিভিন্ন স্থান থেকে বাংলা রেডিও স্টেশন</h1><h2>বিশেষভাবে শ্রী সুমন ধরের জন্য প্রস্তুত</h2></header>
-<section class="radio">
-<div class="face">
-<div class="display" id="topDisplay">
-<div class="now"><img id="nowLogo" class="logo" alt=""><div class="info"><div id="nowName" class="station">একটি বাংলা রেডিও স্টেশন নির্বাচন করুন</div><div id="nowMeta" class="meta">Worldwide Bengali Radio</div><div id="live" class="live">● READY</div></div></div>
-<div class="wave" id="wave"><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i></div>
-<div class="controls"><button class="btn" id="prev">⏮ PREVIOUS</button><button class="btn play" id="play">▶ PLAY</button><button class="btn" id="next">NEXT ⏭</button></div>
-<button class="btn refresh" id="refresh">↻ REFRESH BENGALI STATIONS</button>
+<div class="wrap">
+<h1>বিশ্বের বিভিন্ন স্থান থেকে বাংলা রেডিও স্টেশন</h1>
+<div class="sub">বিশেষভাবে শ্রী সুমন ধরের জন্য প্রস্তুত</div>
+
+<div class="radio">
+ <div class="panel">
+  <div id="topDisplay" class="display">
+   <div id="stationName" class="stationName">বাংলা রেডিও প্রস্তুত হচ্ছে…</div>
+   <div id="stationMeta" class="meta">Expanded Phase 1 • Bangladesh + India + overseas Bengali streams</div>
+   <div id="status" class="status">● CONNECTING…</div>
+   <div id="wave" class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+
+  <div class="knobs"><div class="knob"></div><div class="knob"></div></div>
+
+  <div class="controls">
+   <button id="prevBtn">◀ Previous</button>
+   <button id="playBtn" class="play">▶ PLAY</button>
+   <button id="nextBtn">Next ▶</button>
+   <button id="refreshBtn">↻ Refresh</button>
+  </div>
+
+  <div class="speaker"><div class="grille"></div></div>
+
+  <div class="filters">
+   <select id="country"><option value="all">🌍 সব দেশ — All Bengali stations</option><option value="Bangladesh">🇧🇩 বাংলাদেশ — Bangladesh</option><option value="India">🇮🇳 ভারত — India</option><option value="United Kingdom">🇬🇧 United Kingdom</option><option value="Australia">🇦🇺 Australia</option><option value="Canada">🇨🇦 Canada</option><option value="United States">🇺🇸 United States</option><option value="Bahrain">🇧🇭 Bahrain</option>
+   <input id="search" placeholder="স্টেশন খুঁজুন…">
+  </div>
+  <div id="list" class="list"><div class="loading">স্টেশন খোঁজা হচ্ছে…</div></div>
+  <div class="note">Expanded Phase 1 এখন Radio Browser-এর Bengali/Bangla queries, country queries এবং station-name discovery একসঙ্গে ব্যবহার করে। PLAY করার পরে browser-এর <b>playing</b> event এলে তবেই LIVE STREAMING দেখানো হবে।</div>
+ </div>
 </div>
-<div class="lower"><div class="decor"><div class="knob"></div></div><div class="decor"><div class="speaker"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
-<div class="filters"><select id="country"><option value="">🌍 All Countries</option></select><select id="sort"><option value="votes">Sort: Popularity</option><option value="name">Sort: Station Name</option><option value="bitrate">Sort: Bitrate</option></select><input class="search" id="search" type="search" autocomplete="off" placeholder="🔎 Search Bengali station, city or country"></div>
-<div class="status" id="status">Connecting to Bengali radio directory…</div><main class="grid" id="grid"></main>
-</div></section></div>
 <audio id="audio" preload="none"></audio>
+
 <script>
-const API="https://de1.api.radio-browser.info/json/stations/search";let stations=[],current=-1;
-const $=id=>document.getElementById(id),txt=v=>Array.isArray(v)?v.join(" "):(v||"");
-function esc(v=""){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
-function setPlaying(on){$("wave").classList.toggle("playing",on);$("play").classList.toggle("active",on);$("play").textContent=on?"⏸ PAUSE":"▶ PLAY";$("live").classList.toggle("on",on)}
-async function loadStations(){
- $("status").textContent="⏳ Loading Bengali stations…";
+const MIRRORS=["https://de1.api.radio-browser.info","https://at1.api.radio-browser.info","https://nl1.api.radio-browser.info"];
+
+/* Broad Phase-1 seed catalogue.
+   These are names discovered in current Bengali/Bangla radio directories.
+   We still require an actual stream URL before showing a station as playable. */
+const SEEDS=[
+ "Radio Foorti","Radio Today","Dhaka FM","Peoples Radio","Radio Shadhin","Radio Bhumi",
+ "Radio Din Raat","Jago FM","Radio Capital","Radio Ekattor","Bangladesh Betar","Radio Amber",
+ "Radio Padma","Spice FM","Colours FM","Sufi FM","Bangla Radio","Radio Karatoa","City FM",
+ "Panchagarh FM","RK Music Station","Radio Mahananda","Radio Sarabela","Radio Bikrampur",
+ "Rajshahi FM","Rangpur FM","Sylhet FM","Barisal FM","Coxs Bazar FM","Chittagong FM",
+ "Bandarban FM","FMmoon","Radio GoonGoon","BU Radio","Radio BongOnet","Bengali Wadio",
+ "Bengali Carnival","Radio Bangla Net","Radio Bangla Rock","Folk Nama","Go Yesteryears",
+ "MonOPhone","Chirantanee","DiscoBaani Kolkata","Robichhaya","Radio Kobita",
+ "Radio Ruposhi Bangla","Radio Swadesh","FnF.FM Bangla Radio","FnF.FM Bangla Radio 2",
+ "Radio 2Fun","Asian Radio Live","Asian Sound Radio","Jesus Coming FM Bengali","Lemon24",
+ "Quran in Bengali","Bengali Radio Live","My 90s Bengali","Radio Quarantine Kolkata",
+ "Radio Sagun","Nityananda Janavani","Radio High","Radio Milan","FM Rainbow Kolkata",
+ "FM Gold Kolkata","Vividh Bharati Kolkata","Akashvani Kolkata","Akashvani Siliguri",
+ "Akashvani Shantiniketan","Akashvani Murshidabad","Akashvani Maitree","Akashvani Silchar",
+ "Akashvani Agartala","Akashvani Belonia","Akashvani Kailashahar","Radio Malda",
+ "FM Murarai","Radio N-R Bahrain","Media Waves Communications","VOA Bengali"
+];
+
+const PRIORITY=SEEDS;
+
+function norm(s){return (s||"").toLowerCase().replace(/[^a-z0-9\u0980-\u09ff]+/g,"")}
+function pscore(s){
+ const n=norm(s.name);
+ const i=PRIORITY.findIndex(x=>n.includes(norm(x))||norm(x).includes(n));
+ return i<0?999:i;
+}
+const audio=document.getElementById("audio"),list=document.getElementById("list"),nameEl=document.getElementById("stationName"),metaEl=document.getElementById("stationMeta"),statusEl=document.getElementById("status"),wave=document.getElementById("wave"),playBtn=document.getElementById("playBtn"),search=document.getElementById("search"),country=document.getElementById("country");
+let stations=[],filtered=[],current=-1,busy=false;
+
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+function stop(){wave.classList.remove("playing");playBtn.classList.remove("on")}
+function live(){wave.classList.add("playing");playBtn.classList.add("on")}
+async function fetchJSON(base,path){
  try{
-  const r=await fetch(API+"?language=bengali&hidebroken=true&order=votes&reverse=true&limit=500");
-  if(!r.ok)throw Error("HTTP "+r.status);let data=await r.json();
-  data=data.filter(s=>{let a=txt(s.language).toLowerCase(),b=txt(s.tags).toLowerCase(),c=txt(s.name).toLowerCase();return a.includes("bengali")||a.includes("bangla")||b.includes("bengali")||b.includes("bangla")||c.includes("bengali")||c.includes("bangla")});
-  const seen=new Set();stations=data.filter(s=>{let k=(s.stationuuid||"")+"|"+(s.url_resolved||s.url||"");if(seen.has(k))return false;seen.add(k);return true});
-  fillCountries();render();$("status").textContent="✅ "+stations.length+" Bengali stations found.";
- }catch(e){console.error(e);$("status").textContent="❌ Radio directory unavailable. Check internet and press Refresh.";$("grid").innerHTML='<div class="empty">No station data could be loaded.</div>'}
+   const r=await fetch(base+path,{cache:"no-store"});
+   if(!r.ok)return [];
+   const d=await r.json();
+   return Array.isArray(d)?d:[];
+ }catch(e){return []}
 }
-function fillCountries(){
- let sel=$("country"),old=sel.value,c=[...new Set(stations.map(s=>s.country).filter(Boolean))].sort();
- sel.innerHTML='<option value="">🌍 All Countries</option>';c.forEach(x=>{let o=document.createElement("option");o.value=x;o.textContent="🌐 "+x;sel.appendChild(o)});if(c.includes(old))sel.value=old;
-}
-function filtered(){
- let q=$("search").value.trim().toLowerCase(),c=$("country").value,sort=$("sort").value;
- let a=stations.filter(s=>{let h=[s.name,s.country,s.city,s.state,s.tags,s.language].map(txt).join(" ").toLowerCase();return(!q||h.includes(q))&&(!c||s.country===c)});
- a.sort((x,y)=>sort==="name"?(x.name||"").localeCompare(y.name||""):sort==="bitrate"?Number(y.bitrate||0)-Number(x.bitrate||0):Number(y.votes||0)-Number(x.votes||0));return a;
+
+async function load(){
+ if(busy)return;
+ busy=true;
+ list.innerHTML='<div class="loading">বিশ্বের Bengali station database-গুলি থেকে station খোঁজা হচ্ছে…</div>';
+
+ let all=[];
+ /* 1. Radio Browser: several broad queries */
+ const rbQueries=[
+  "/json/stations/search?language=bengali&hidebroken=true&limit=1000",
+  "/json/stations/search?language=bangla&hidebroken=true&limit=1000",
+  "/json/stations/search?tag=bengali&hidebroken=true&limit=1000",
+  "/json/stations/search?tag=bangla&hidebroken=true&limit=1000",
+  "/json/stations/search?country=Bangladesh&hidebroken=true&limit=1000",
+  "/json/stations/search?country=India&language=bengali&hidebroken=true&limit=1000",
+  "/json/stations/search?name=Radio&language=bengali&hidebroken=false&limit=1000"
+ ];
+
+ for(const base of MIRRORS){
+   for(const q of rbQueries) all.push(...await fetchJSON(base,q));
+   if(all.length>0)break;
+ }
+
+ /* 2. Direct name discovery against Radio Browser for stations that
+       are often classified differently by language/tag. */
+ const extraQueries=SEEDS.map(n=>"/json/stations/search?name="+encodeURIComponent(n)+"&hidebroken=false&limit=50");
+ if(all.length){
+   for(const base of MIRRORS){
+     for(const q of extraQueries) all.push(...await fetchJSON(base,q));
+     break;
+   }
+ }
+
+ const seen=new Set();
+ const candidates=all.filter(s=>{
+   const url=s.url_resolved||s.url||"";
+   if(!url)return false;
+   const key=(norm(s.name)+"|"+url).toLowerCase();
+   if(seen.has(key))return false;
+   seen.add(key);
+   return true;
+ }).filter(s=>{
+   const h=norm([s.name,s.language,s.tags,s.country].join(" "));
+   const n=norm(s.name);
+   const isBengali=h.includes("bengali")||h.includes("bangla")||h.includes("বাংলা");
+   const isSeed=SEEDS.some(x=>n.includes(norm(x))||norm(x).includes(n));
+   return isBengali||isSeed;
+ });
+
+ candidates.sort((a,b)=>pscore(a)-pscore(b)||(b.votes||0)-(a.votes||0));
+
+ stations=candidates;
+ busy=false;
+ render();
+
+ statusEl.textContent=stations.length?"● READY":"● NO STATIONS";
+ nameEl.textContent=stations.length?"বাংলা রেডিও প্রস্তুত":"কোনও স্টেশন পাওয়া যায়নি";
+ metaEl.textContent=stations.length
+   ? `Expanded Phase 1 • ${stations.length}টি discovered stream`
+   : "Refresh চাপুন";
 }
 function render(){
- let a=filtered();if(!a.length){$("grid").innerHTML='<div class="empty">No matching Bengali stations found.</div>';return}
- $("grid").innerHTML=a.map(s=>{let i=stations.indexOf(s),p=[s.city,s.state,s.country].filter(Boolean).join(", ");return `<article class="card"><img class="card-logo" src="${esc(s.favicon||"")}" alt="" onerror="this.style.visibility='hidden'"><div class="card-info"><div class="card-name" title="${esc(s.name||"Bengali Radio")}">${esc(s.name||"Bengali Radio")}</div><div class="card-meta">${esc(p||"Worldwide")}${s.codec?" • "+esc(s.codec):""}${s.bitrate?" • "+esc(s.bitrate)+" kbps":""}</div></div><button class="card-play" onclick="playStation(${i})">▶</button></article>`}).join("");
+ const q=norm(search.value),c=country.value;
+ filtered=stations.filter(s=>{
+   const h=norm([s.name,s.tags,s.country,s.language].join(" "));
+   return (!q||h.includes(q))&&(c==="all"||norm(s.country)===norm(c)||norm(s.name).includes(norm(c)));
+ });
+ if(!filtered.length){list.innerHTML='<div class="loading">কোনও station পাওয়া যায়নি।</div>';return}
+ list.innerHTML=filtered.map((s,i)=>`<div class="card ${stations.indexOf(s)===current?'active':''}">
+ <div><div class="name">${esc(s.name||"Unnamed Bengali Station")}</div><div class="small">${esc(s.country||"Bangladesh")} • ${esc(s.codec||"Stream")}${s.bitrate?" • "+s.bitrate+" kbps":""}</div></div>
+ <button onclick="playStation(${i})">▶ PLAY</button></div>`).join("");
 }
 async function playStation(i){
- let s=stations[i];if(!s)return;current=i;let a=$("audio");
- $("nowName").textContent=s.name||"Bengali Radio";$("nowMeta").textContent=[s.city,s.state,s.country,s.codec,s.bitrate?s.bitrate+" kbps":""].filter(Boolean).join(" • ");
- if(s.favicon){$("nowLogo").src=s.favicon;$("nowLogo").style.visibility="visible"}else $("nowLogo").style.visibility="hidden";
- setPlaying(false);$("live").textContent="● CONNECTING…";a.pause();a.src=s.url_resolved||s.url||"";
- if(!a.src){$("live").textContent="● STREAM URL NOT AVAILABLE";return}
- try{await a.play()}catch(e){$("live").textContent="● READY — TAP PLAY";setPlaying(false);$("topDisplay").scrollIntoView({behavior:"smooth",block:"start"})}
+ const s=filtered[i];if(!s)return;
+ current=stations.indexOf(s);render();audio.pause();audio.src=s.url_resolved||s.url;audio.load();
+ nameEl.textContent=s.name||"বাংলা রেডিও";metaEl.textContent=`${s.country||"Bangladesh"} • ${s.codec||"Stream"}${s.bitrate?" • "+s.bitrate+" kbps":""}`;
+ stop();statusEl.textContent="● BUFFERING…";
+ try{await audio.play()}catch(e){stop();statusEl.textContent="● STREAM UNAVAILABLE"}
 }
-$("play").onclick=async()=>{let a=$("audio");if(!a.src){if(stations.length)playStation(0);return}if(a.paused){try{await a.play()}catch(e){}}else a.pause()};
-$("prev").onclick=()=>{if(!stations.length)return;current=current<=0?stations.length-1:current-1;playStation(current)};
-$("next").onclick=()=>{if(!stations.length)return;current=current<0?0:(current+1)%stations.length;playStation(current)};
-$("refresh").onclick=loadStations;$("country").onchange=render;$("sort").onchange=render;$("search").oninput=render;
-$("audio").addEventListener("playing",()=>{$("live").textContent="● LIVE STREAMING";setPlaying(true);$("topDisplay").scrollIntoView({behavior:"smooth",block:"start"})});
-$("audio").addEventListener("pause",()=>{$("live").textContent="● PAUSED";setPlaying(false)});
-$("audio").addEventListener("waiting",()=>{$("live").textContent="● BUFFERING…";setPlaying(false)});
-$("audio").addEventListener("error",()=>{$("live").textContent="● STREAM UNAVAILABLE";setPlaying(false)});
-loadStations();
+function next(){if(!filtered.length)return;let i=filtered.findIndex(s=>stations.indexOf(s)===current);playStation((i<0?0:i+1)%filtered.length)}
+function prev(){if(!filtered.length)return;let i=filtered.findIndex(s=>stations.indexOf(s)===current);playStation((i<0?0:(i-1+filtered.length)%filtered.length))}
+audio.addEventListener("playing",()=>{live();statusEl.textContent="● LIVE STREAMING";document.getElementById("topDisplay").scrollIntoView({behavior:"smooth",block:"start"});render()});
+audio.addEventListener("pause",()=>{if(!audio.ended){stop();statusEl.textContent="● PAUSED"}});
+audio.addEventListener("waiting",()=>{stop();statusEl.textContent="● BUFFERING…"});
+audio.addEventListener("error",()=>{stop();statusEl.textContent="● STREAM UNAVAILABLE";render()});
+playBtn.onclick=async()=>{if(!audio.src){if(filtered.length)playStation(0);return}if(audio.paused){try{await audio.play()}catch(e){statusEl.textContent="● STREAM UNAVAILABLE"}}else audio.pause()};
+document.getElementById("nextBtn").onclick=next;document.getElementById("prevBtn").onclick=prev;document.getElementById("refreshBtn").onclick=load;search.oninput=render;country.onchange=render;
+load();
 </script>
 </body>
 </html>
